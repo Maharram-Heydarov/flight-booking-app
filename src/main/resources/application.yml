@@ -5,16 +5,20 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/flight_booking
     username: postgres
-    password: # boş saxlayırsan çünki Docker Compose faylında POSTGRES_HOST_AUTH_METHOD: trust təyin etmisən
+    password:
     driver-class-name: org.postgresql.Driver
+
+  sql:
+    init:
+      mode: always
 
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true # Hibernate tərəfindən icra olunan SQL sorğuları göstəriləcək
+    show-sql: true
     properties:
       hibernate:
-        format_sql: true # SQL sorğuları formatlı göstəriləcək
+        format_sql: true
 
 server:
   port: 8080
