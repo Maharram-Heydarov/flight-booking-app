@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15 # PostgreSQL imici
+    container_name: flight_booking_db # Konteyner adı
+    restart: always # Konteyner avtomatik restart edilsin
+    environment:
+      POSTGRES_DB: flight_booking # Verilənlər bazasının adı
+      POSTGRES_HOST_AUTH_METHOD: trust # Şifrə tələb olunmasın
+    ports:
+      - "5432:5432" # Lokal port 5432 konteyner portu 5432-yə bağlıdır
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Verilənlər bazası məlumatlarını saxlamaq üçün volume
+
+volumes:
+  postgres_data:
